@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body ng-init="customers=[{prenom:'patrick', nom:'pierre'},{prenom:'claire', nom:'Charpentier'},{prenom:'heddy', nom:'amara'}]">
+    Name:
+    <br />
+    <input type="text" ng-model="name"> 
+
+    <div class="container">
+        <ul>
+            <li ng-repeat="cust in customers | filter:name">{{ cust.prenom }} - {{ cust.nom }}</li>
+        </ul>
+
+    </div>
+
+    
+
+    <script src="jquery.js"></script>
+    <script src="AngularJS.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
