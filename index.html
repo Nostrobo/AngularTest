@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" ng-app>
+<!DOCTYPE html >
+<html lang="en" ng-app="demoApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +8,35 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
-<body ng-init="customers=[{prenom:'patrick', nom:'pierre'},{prenom:'claire', nom:'Charpentier'},{prenom:'heddy', nom:'amara'}]">
-    Name:
-    <br />
-    <input type="text" ng-model="name"> 
-
-    <div class="container">
-        <ul>
-            <li ng-repeat="cust in customers | filter:name">{{ cust.prenom }} - {{ cust.nom }}</li>
-        </ul>
-
+<body>
+    <div ng-controller="SimpleController">
+        Name:
+        <br />
+        <input type="text" ng-model="name"> 
+        
+        
+            <ul>
+                <li ng-repeat="cust in customers | filter: name">{{ cust.prenom | lowercase }} - {{ cust.nom | uppercase }}</li>
+            </ul>
+         
     </div>
-
-    
-
     <script src="jquery.js"></script>
     <script src="AngularJS.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        var demoApp = angular.module('demoApp',[]);
+        function SimpleController($scope){
+            $scope.customers = [
+                {prenom:'patrick', nom:'pierre'},
+                {prenom:'claire' , nom:'Charpentier'},
+                {prenom:'heddy'  , nom:'amara'}
+                ];
+        }
+        demoApp.controller('SimpleController', SimpleController);
+    </script>
+    
+
+    
+
 </body>
 </html>
